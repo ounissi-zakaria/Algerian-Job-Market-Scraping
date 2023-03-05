@@ -1,12 +1,19 @@
-# Define here the models for your scraped items
-#
-# See documentation in:
-# https://docs.scrapy.org/en/latest/topics/items.html
-
-import scrapy
+from dataclasses import dataclass, field
+from datetime import datetime
 
 
-class AlgerianJobMarketItem(scrapy.Item):
-    # define the fields for your item here like:
-    # name = scrapy.Field()
-    pass
+@dataclass
+class JobItem:
+    title: str = field(default="")
+    id: str = field(default="")
+    link: str = field(default="")
+
+    published_at: datetime | None = field(default=None)
+    created_at: datetime | None = field(default=None)
+
+    technologies: list[str] = field(default_factory=list)
+
+    company: str = field(default="")
+    contract_type: str = field(default="")
+    job_type: str = field(default="")
+    level: str = field(default="")
