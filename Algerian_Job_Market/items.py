@@ -1,6 +1,6 @@
 from dataclasses import dataclass, field
 from datetime import datetime
-
+from typing import Optional
 
 @dataclass
 class JobItem:
@@ -8,8 +8,8 @@ class JobItem:
     id: str = field(default="")
     link: str = field(default="")
 
-    published_at: datetime | None = field(default=None)
-    created_at: datetime | None = field(default=None)
+    published_at: Optional[datetime] = field(default=None)
+    created_at: Optional[datetime]= field(default=None)
 
     technologies: list[str] = field(default_factory=list)
 
