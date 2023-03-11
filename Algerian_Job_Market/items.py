@@ -18,5 +18,6 @@ class JobItem:
     contract_type: str = field(default="")
     job_type: str = field(default="")
     level: str = field(default="")
+    location: str = field(default="")
 
     description: str = field(default="")
