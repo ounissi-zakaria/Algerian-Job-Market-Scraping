@@ -16,7 +16,7 @@ NEWSPIDER_MODULE = "Algerian_Job_Market.spiders"
 #USER_AGENT = "Algerian_Job_Market (+http://www.yourdomain.com)"
 
 # Obey robots.txt rules
-ROBOTSTXT_OBEY = True
+ROBOTSTXT_OBEY = False
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32
@@ -37,8 +37,18 @@ ROBOTSTXT_OBEY = True
 
 # Override the default request headers:
 DEFAULT_REQUEST_HEADERS = {
-    "Accept": "*/*",
-    "Accept-Language": "en",
+    "Accept":
+        "*/*",
+    "Accept-Language":
+        "en",
+    "Cache-Control":
+        "max-age=0",
+    "Connection":
+        "keep-alive",
+    "Upgrade-Insecure-Requests":
+        "1",
+    "User-Agent": ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
+                   " (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36"),
 }
 
 # Enable or disable spider middlewares
