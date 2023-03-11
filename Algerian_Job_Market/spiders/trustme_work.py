@@ -39,13 +39,12 @@ class TrustmeWorkSpider(Spider):
             job.published_at = self._parse_time(offer["published_at"])
             job.created_at = self._parse_time(offer["created_at"])
 
-            # TODO:Keep popularity somewhere
             job.technologies = [technologies[technology["id"]]["label"] for technology in offer["technologies"]]
 
-            job.company = companies[offer["company"]["id"]]
-            job.contract_type = contract_types[offer["contract_type"]["id"]]
-            job.job_type = jobs[offer["job"]["id"]]
-            job.level = levels[offer["level"]["id"]]
+            job.company = companies[offer["company"]["id"]]["name"]
+            job.contract_type = contract_types[offer["contract_type"]["id"]]["label"]
+            job.job_type = jobs[offer["job"]["id"]]["label"]
+            job.level = levels[offer["level"]["id"]]["label"]
             yield job
 
     def _parse_time(self, date_string):
